@@ -20,4 +20,14 @@ wyświetlać poszczególnych pracowników.
  <li>Nie można usuwać stopki systemu, ani jej w żaden sposób zakrywać!</li>
 <ol>
 </br>
-Wymagania programu: PHP w wersji > 5.6 (moduły: mbstring, intl, mysql), serwer: Apache lub IIS, baza danych: mySql.
+Wymagania programu: PHP w wersji > 5.6 (moduły: mbstring, intl, mysql), CakePHP 3, serwer: Apache lub IIS, baza danych: mySql.
+</br>
+Instalacja:
+<ol>
+<li>Utwórz bazę danych za pomocą skryptu.</li>
+<li>Zainstaluj CakePHP za pomocą composera: composer create-project --prefer-dist cakephp/app callcenter</li>
+<li>Wrzuć pliki do src i config.</li>
+<li>Skonfiguruj połączenie z bazą za pomocą pliku config/app.php oraz opcjonalnie podaj dane SMTP do wysyłania zapomnianych haseł.</li>
+<li>Uruchom aplikację. Wstępne loginy: admin (h: LKCallCallCenter) zwykły użytkownik: mtarkowski (h: Mirek)</li>
+
+Miłego użytkowania
