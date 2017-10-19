@@ -68,10 +68,11 @@ class InterviewsController extends AppController
 
     public function add()
     {
+      $prac = $this->Auth->user('id');
         $interview = $this->Interviews->newEntity();
         if ($this->request->is('post')) {
             $interview = $this->Interviews->patchEntity($interview, $this->request->getData());
-            $interview->user_id = $this->Auth->user('id');
+            $interview->user_id = $prac;
             if ($this->Interviews->save($interview)) {
                 $this->Flash->success(__('Rozmowa została zapisana poprawnie. Pojawi się na liście w dniu ' . $oddnia = $this->request->data['nextcall']));
                 return $this->redirect(['action' => 'index']);
@@ -79,7 +80,6 @@ class InterviewsController extends AppController
             $this->Flash->error(__('Błąd podczas zapisu. Popraw błędy i spróbuj ponownie.'));
         }
         $users = $this->Interviews->Users->find('list', ['limit' => 200]);
-        $prac = $this->Auth->user('id');
         $this->set(compact('interview', 'users','prac'));
         $this->set('_serialize', ['interview']);
     }
