@@ -4,7 +4,7 @@
   if ($this->request->session()->read('Auth.User.role') == 'admin'){
     echo $this->Form->control('user_id', ['required'=>true,'options' => $users,'label'=>__('Pracownik')]);
 } else {
- echo $this->Form->control('user_id', ['disabled'=>'disabled','options' => $this->request->session()->read('Auth.Userid'),'label'=>__('Pracownik')]);
+ echo $this->Form->control('user_id', ['disabled'=>'disabled','default'=>$prac,'label'=>__('Pracownik')]);
 }
     echo $this->Form->control('calldate',['required'=>true,'id'=>'datarozmowy','type'=>'text','label'=>__('Data rozmowy'),'style' => 'width:150px;']);
     echo $this->Form->control('calltime',['date-format'=>'HH:mm','required'=>true,'id'=>'czasrozmowy','type'=>'text','label'=>__('Godz. rozpoczęcia'),'data-format'=>'HH:mm','style' => 'width:100px;']);
