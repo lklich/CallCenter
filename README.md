@@ -30,4 +30,8 @@ Instalacja:
 <li>Skonfiguruj połączenie z bazą za pomocą pliku config/app.php oraz opcjonalnie podaj dane SMTP do wysyłania zapomnianych haseł.</li>
 <li>Uruchom aplikację. Wstępne loginy: admin (h: LKCallCallCenter) zwykły użytkownik: mtarkowski (h: Mirek)</li>
 
+<img src="http://leszek-klich.pl/callcenter/doc/1.png">
+<img src="http://leszek-klich.pl/callcenter/doc/2.png">
+<img src="http://leszek-klich.pl/callcenter/doc/3.png">
+
 Miłego użytkowania
