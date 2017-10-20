@@ -1,3 +1,13 @@
+<?php if($lang=='pl_PL') {
+  echo $this->Html->script('datepicker-pl');
+  echo $this->Html->script('langs/pl.min');
+} ?>
+
+<?php if($lang=='de_DE') {
+  echo $this->Html->script('datepicker-de');
+} ?>
+
+
 <?= $this->Html->script('trumbowyg.min') ?>
 <?= $this->Html->css('trum/trumbowyg.min') ?>
 <?php
@@ -27,8 +37,6 @@
       $("#datakontakt").datepicker({dateFormat:"yy-mm-dd",
       minDate: new Date($("#datarozmowy").val())});
       $.trumbowyg.svgPath = '/css/trum/icons.svg';
-      $('.editor').trumbowyg({
-    lang: 'pl'
-});
+      $('.editor').trumbowyg({ lang: 'pl' });
     })
 </script>

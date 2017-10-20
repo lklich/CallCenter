@@ -58,14 +58,19 @@ input {
 }
 input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
 </style>
-
 <div class="login">
-	<h1>Logowanie</h1>
+<center>
+<?php
+  echo $this->Html->link($this->Html->image('PL.png'), ['action' => 'changeLang', 'pl_PL'], array('escape' => false)).' ';
+  echo $this->Html->link($this->Html->image('GB.png'), ['action' => 'changeLang', 'en_US'], array('escape' => false)).' ';
+  echo $this->Html->link($this->Html->image('DE.png'), ['action' => 'changeLang', 'de_DE'], array('escape' => false)); ?>
+</center>
+	<h1><?= __('Logowanie') ?></h1>
   <?= $this->Flash->render() ?>
   <?= $this->Form->create() ?>
-  <?= $this->Form->control('username', ['label'=>false, 'required'=>true, 'placeholder'=>'Nazwa użytkownika']) ?>
-  <?= $this->Form->control('password',['label'=>false, 'required'=>true, 'type'=>'password','placeholder'=>'Hasło']) ?>
-  <?= $this->Form->submit('Zaloguj', array('class' => 'button','style'=>'width: 290px; height: 50px;')) ?>
+  <?= $this->Form->control('username', ['label'=>false, 'required'=>true, 'placeholder'=>__('Nazwa użytkownika')]) ?>
+  <?= $this->Form->control('password',['label'=>false, 'required'=>true, 'type'=>'password','placeholder'=>__('Hasło')]) ?>
+  <?= $this->Form->submit(__('Zaloguj'), array('class' => 'button','style'=>'width: 290px; height: 50px;')) ?>
   <?= $this->Form->end() ?>
-  <center><?= $this->Html->link(__('Odzyskaj zapomniane hasło'), ['controller'=>'users','action' => 'password'],['class'=>'link']) ?></center>
+  <center><?= $this->Html->link(__('Odzyskaj hasło'), ['controller'=>'users','action' => 'password'],['class'=>'link']) ?></center>
 </div>

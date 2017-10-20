@@ -21,8 +21,7 @@ class UsersTable extends Table
 
     public function findAuth(\Cake\ORM\Query $query, array $options)
   {
-   $query->select(['id','username','password','email','role','name','surname','phone'])
-       ->andWhere(['Users.active' => 1]);
+   $query->select(['id','username','password','email','role','name','surname','phone'])->andWhere(['Users.active' => 1]);
     return $query;
   }
 
@@ -42,8 +41,7 @@ class UsersTable extends Table
             ->notEmpty('role', 'Należy wybrać rolę')
             ->add('role', 'inList', [
                 'rule' => ['inList', ['admin', 'employer']],
-                'message' => 'Proszę wybrać poprawną rolę użytkownika'
-            ]);
+                'message' => 'Proszę wybrać poprawną rolę użytkownika']);
 
         $validator
             ->scalar('password')

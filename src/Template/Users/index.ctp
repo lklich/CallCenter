@@ -27,11 +27,11 @@
                 <td><?= h($user->phone) ?></td>
                 <td><?= h($user->email) ?></td>
                 <td><?= h($user->created) ?></td>
-                <td><?= h($user->active) ? 'Tak':'Nie' ?></td>
+                <td><?= h($user->active) ? __('Tak'):__('Nie') ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Podgląd'), ['action' => 'view', $user->id]) ?>
                     <?= $this->Html->link(__('Edytuj'), ['action' => 'edit', $user->id]) ?>
-                    <?= $this->Form->postLink(__('Usuń'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
+                    <?= $this->Form->postLink(__('Usuń'), ['action' => 'delete', $user->id], ['confirm' => __('Usunąć użytkownika {0}?', $user->full_name)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

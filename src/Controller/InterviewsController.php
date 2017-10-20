@@ -105,9 +105,9 @@ class InterviewsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $interview = $this->Interviews->get($id);
         if ($this->Interviews->delete($interview)) {
-            $this->Flash->success(__('Rozmowa została usunięta.'));
+            $this->Flash->success(__('Wpis został usunięty.'));
         } else {
-            $this->Flash->error(__('Błąd podczas usuwania.'));
+            $this->Flash->error(__('Błąd podczas usuwania wpisu.'));
         }
         return $this->redirect(['action' => 'index']);
     }

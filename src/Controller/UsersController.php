@@ -10,10 +10,10 @@ class UsersController extends AppController
    public function isAuthorized($user)
     {
       if (isset($user['role']) && ($user['role'] === 'admin')) {
-          $allowedActions = ['view','passreset','add', 'edit', 'delete', 'index'];
+          $allowedActions = ['index','view','passreset','add', 'edit', 'delete'];
           if(in_array($this->request->action, $allowedActions)) { return true; }}
-          $this->Flash->success(__('Nie masz praw dostępu do tej funkcji.'));
-      return false;
+          $this->Flash->error(__('Nie masz praw dostępu do tej funkcji.'));
+          return false;
       return parent::isAuthorized($user);
     }
 

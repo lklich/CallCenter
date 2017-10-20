@@ -21,7 +21,8 @@ public function isAuthorized($user)
 
     public function index()
     {
-
+      $lang = $this->getLang();
+      $this->set('lang', $lang);
     }
 
 }

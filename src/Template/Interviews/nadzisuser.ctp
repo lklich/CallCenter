@@ -4,13 +4,13 @@
 <td><?= $this->Html->link(__('Dodaj'), ['action' => 'add'],['class'=>'button button-danger']) ?></td>
 <td><?= $this->Html->link(__('Pracownicy'), ['controller' => 'Users', 'action' => 'index'],['class'=>'button']) ?></td>
 <?= $this->Form->create('search',['class'=>'navbar-form navbar-left']) ?>
-<td><?= $this->Form->input('dataod',['style'=>'width: 150px','default'=>$dataod,'placeholder'=>'Od daty','label'=>'Od dnia']) ?></td>
-<td><?= $this->Form->input('datado',['style'=>'width: 150px','default'=>$datado,'placeholder'=>'Do daty','label'=>'Do dnia']) ?></td>
+<td><?= $this->Form->input('dataod',['style'=>'width: 150px','default'=>$dataod,'placeholder'=>__('Od dnia'),'label'=>__('Od dnia')]) ?></td>
+<td><?= $this->Form->input('datado',['style'=>'width: 150px','default'=>$datado,'placeholder'=>__('Do dnia'),'label'=>__('Do dnia')]) ?></td>
 <?php if ($this->request->session()->read('Auth.User.role') == 'admin'){
-echo '<td>' . $this->Form->input('kto',['options'=>$prac,'empty'=>true,'empty'=> ['%' => '-- Wszyscy --'],'placeholder'=>'Pracownik','label'=>'Pracownik']) . '</td>'; }
+echo '<td>' . $this->Form->input('kto',['options'=>$prac,'empty'=>true,'empty'=> ['%' => __('-- Wszyscy --')],'label'=>__('Pracownik')]) . '</td>'; }
 else { $prac->id = $this->request->session()->read('Auth.User.id'); }
 ?>
-<td><?= $this->Form->submit('Szukaj', ['class'=>'button', 'title' => 'Wyszukaj']); ?></td>
+<td><?= $this->Form->submit(__('Szukaj'), ['class'=>'button', 'title' => __('Szukaj')]); ?></td>
 <td><?= $this->Html->link(__('Resetuj filtr'), ['action' => 'index'],['class'=>'button']) ?></td>
   </tr>
 <?= $this->Form->end() ?>
@@ -25,8 +25,8 @@ else { $prac->id = $this->request->session()->read('Auth.User.id'); }
         <thead>
                 <th scope="col"><?= $this->Paginator->sort('user_id',__('Pracownik')) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('calldate',__('Data i czas')) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('company',__('Firma')) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('person',__('Osoba')) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('company',__('Nazwa firmy')) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('person',__('Osoba kontaktowa')) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('phone',__('Telefon')) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('email',__('E-mail')) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('nextcall',__('Następny kontakt')) ?></th>
@@ -37,8 +37,8 @@ else { $prac->id = $this->request->session()->read('Auth.User.id'); }
             <?php foreach ($interviews as $interview): ?>
               <?php  if($interview->ended == true) {
                 $kolor = '#ccccff';
-                echo '<tr title="Zakończona">';
-              } else { $kolor='#ffffff'; echo '<tr title="Do załatwienia">'; } ?>
+                echo '<tr title="' . __('Zakończona') . '">';
+              } else { $kolor='#ffffff'; echo '<tr title="' . __('Do załatwienia') . '">'; } ?>
                 <td bgcolor="<?= $kolor ?>"><?= h($interview->user->full_name) ?></td>
                 <td bgcolor="<?= $kolor ?>"><?= h($interview->calldate . ', ' . date("H:i",strtotime($interview->calltime)) ) ?></td>
                 <td bgcolor="<?= $kolor ?>"><?= h($interview->company) ?></td>
@@ -49,7 +49,7 @@ else { $prac->id = $this->request->session()->read('Auth.User.id'); }
                 <td bgcolor="<?= $kolor ?>" class="actions">
                     <?= $this->Html->link(__('Podgląd'), ['action' => 'view', $interview->id]) ?>
                     <?= $this->Html->link(__('Edycja'), ['action' => 'edit', $interview->id]) ?>
-                    <?= $this->Form->postLink(__('Usuń'), ['action' => 'delete', $interview->id], ['confirm' => __('Na pewno usunąć kontakt {0}?', $interview->firma)]) ?>
+                    <?= $this->Form->postLink(__('Usuń'), ['action' => 'delete', $interview->id], ['confirm' => __('Na pewno usunąć konwersację {0}?', $interview->company)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
