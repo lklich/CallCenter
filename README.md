@@ -33,7 +33,7 @@ Instalacja:
 <li>Zainstaluj CakePHP za pomocą composera: composer create-project --prefer-dist cakephp/app callcenter</li>
 <li>Wrzuć pliki do src i config.</li>
 <li>Skonfiguruj połączenie z bazą za pomocą pliku config/app.php oraz opcjonalnie podaj dane SMTP do wysyłania zapomnianych haseł.</li>
-<li>Uruchom aplikację. Wstępne loginy: admin (h: LKCallCallCenter) zwykły użytkownik: mtarkowski (h: Mirek)</li>
+<li>Uruchom aplikację. Wstępne loginy: admin (h: LKCallCenter) zwykły użytkownik: mtarkowski (h: Mirek)</li>
 
 <img src="http://leszek-klich.pl/callcenter/doc/1.png">
 <img src="http://leszek-klich.pl/callcenter/doc/2.png">
